@@ -1,20 +1,37 @@
 # src/api/ingestion_api.py
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, UploadFile, File, HTTPException, Body
 from fastapi.responses import JSONResponse
 from typing import Any
 import os
 import uuid
 import shutil
 import requests
-
+from pydantic import BaseModel
 from src.models.ingestion_models import URLInput, UploadResponse
 from src.ingestion.utils import normalize_file_path
-from src.ingestion.parsers import parse_pdf, parse_docx, parse_html
+from src.ingestion.parsers import parse_pdf, parse_docx, parse_html, parse_text_file
 
 router = APIRouter(prefix="/ingestion", tags=["ingestion"])
 
+class PlainTextInput(BaseModel):
+    text: str
+
 UPLOAD_DIR = os.environ.get("DF_UPLOAD_DIR", "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+@router.post("/parse-text/")
+def parse_text_endpoint(payload: dict = Body(...)):
+    """
+    Accepts raw text input and parses it, saving it as a .txt file.
+    Payload format: {"text": "Your text here"}
+    """
+    text = payload.get("text", "").strip()
+    if not text:
+        raise HTTPException(status_code=400, detail="No text provided")
+
+    from src.ingestion.parsers.text_parser import parse_text_string
+    result = parse_text_string(text)
+    return JSONResponse(content=result)
 
 @router.post("/upload-file/", response_model=UploadResponse)
 async def upload_file(file: UploadFile = File(...)):
@@ -56,6 +73,8 @@ def parse_uploaded(file_id: str):
             result = parse_docx(path)
         elif ext in [".html", ".htm"]:
             result = parse_html(path)
+        elif ext in [".txt"]:
+            result = parse_text_file(path)
         else:
             raise HTTPException(status_code=400, detail=f"Unsupported file extension: {ext}")
     except Exception as e:

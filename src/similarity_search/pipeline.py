@@ -51,7 +51,7 @@ def process_document(doc: Dict) -> Dict:
         )
 
         # Limit Google usage
-        max_google_chunks = getattr(configs, "MAX_GOOGLE_CHUNKS", 3)
+        max_google_chunks = getattr(configs, "MAX_GOOGLE_CHUNKS", 2)
 
         for idx, block in enumerate(blocks):
             # -------------------------
