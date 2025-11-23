@@ -3,7 +3,7 @@ import requests
 import re
 from typing import Optional
 from . import configs
-
+from src.ingestion.utils import split_sentences
 logger = logging.getLogger(__name__)
 
 try:
@@ -25,8 +25,11 @@ except ImportError:
     _HAS_PDFPLUMBER = False
 
 _FETCH_CACHE = {}
-
 def fetch_full_text(url: str, timeout: Optional[int] = None) -> Optional[str]:
+    """
+    Fetch text from URL, attempt multiple strategies (trafilatura, newspaper, PDF),
+    then split into sentences for better exact match detection.
+    """
     timeout = timeout or getattr(configs, "REQUEST_TIMEOUT", 10)
     if not url:
         return None
@@ -43,13 +46,13 @@ def fetch_full_text(url: str, timeout: Optional[int] = None) -> Optional[str]:
             return None
         html_content = r.text
 
-        # Try trafilatura
+        # 1️⃣ Trafilatura
         if _HAS_TRAFILATURA:
             extracted = trafilatura.extract(html_content, url=url)
             if extracted:
                 text = extracted.strip()
 
-        # Fallback newspaper
+        # 2️⃣ Newspaper fallback
         if not text and _HAS_NEWSPAPER:
             article = Article(url)
             article.download()
@@ -57,7 +60,7 @@ def fetch_full_text(url: str, timeout: Optional[int] = None) -> Optional[str]:
             if article.text:
                 text = article.text.strip()
 
-        # PDF fallback
+        # 3️⃣ PDF fallback
         if not text and url.lower().endswith(".pdf") and _HAS_PDFPLUMBER:
             import io
             r_pdf = requests.get(url, headers=headers, timeout=timeout)
@@ -71,14 +74,17 @@ def fetch_full_text(url: str, timeout: Optional[int] = None) -> Optional[str]:
                             text_pages.append(page_text)
                 text = "\n".join(text_pages).strip()
 
-        # Final fallback: basic HTML cleanup
+        # 4️⃣ Basic HTML fallback
         if not text:
             html = re.sub(r"(?is)<(script|style).*?>.*?(</\1>)", "", r.text)
             html = re.sub(r"(?is)<.*?>", " ", html)
             text = re.sub(r"\s+", " ", html).strip()
-            max_chars = getattr(configs, "MAX_FETCHED_TEXT_CHARS", 20000)
-            if len(text) > max_chars:
-                text = text[:max_chars]
+
+        # 5️⃣ Sentence splitting for expansion
+        if text:
+            sentences = split_sentences(text)  # or use spacy nlp to split
+            expanded_text = " ".join([s.strip() for s in sentences if s.strip()])
+            text = expanded_text[:getattr(configs, "MAX_FETCHED_TEXT_CHARS", 20000)]
 
     except Exception as e:
         logger.warning("Failed to fetch/parse %s: %s", url, e)

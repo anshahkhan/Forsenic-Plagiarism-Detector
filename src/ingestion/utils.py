@@ -73,3 +73,33 @@ def section_splitter(full_text: str, pages_text: List[str]) -> List[Dict[str, An
             "end_page": len(pages_text)
         })
     return sections
+
+
+# --------------------------
+# Sentence Splitter for Module 3
+# --------------------------
+
+def split_sentences(text: str) -> List[str]:
+    """
+    Minimal sentence splitter for Module 3.
+    Can be replaced with spaCy or NLTK for more accuracy.
+    """
+    if not text:
+        return []
+    sents = re.split(r'(?<=[.!?])\s+', text.strip())
+    return [s for s in sents if s]
+
+
+def get_ngrams(text: str, n: int = 3):
+    words = text.split()
+    return [" ".join(words[i:i+n]) for i in range(len(words) - n + 1)]
+
+
+def normalize_text(text: str) -> str:
+    """Clean text for downstream NLP: remove extra spaces, HTML, and non-breaking spaces."""
+    if not text:
+        return ""
+    text = re.sub(r"<[^>]+>", " ", text)  # remove HTML tags
+    text = text.replace("\xa0", " ")
+    text = re.sub(r"\s+", " ", text)      # collapse multiple spaces
+    return text.strip()
