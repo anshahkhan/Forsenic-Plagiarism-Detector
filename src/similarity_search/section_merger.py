@@ -3,6 +3,12 @@ from typing import List, Dict
 import uuid
 from . import configs
 
+
+def split_sentences_fallback(text: str):
+    return re.split(r'(?<=[.!?])\s+', text)
+
+
+
 def word_count(text: str) -> int:
     return len(re.findall(r"\w+", text))
 
@@ -107,29 +113,67 @@ def merge_chunks_to_blocks(chunks: List[Dict],
 
     return merged
 
-def auto_chunk_section(text: str) -> List[Dict]:
+def auto_chunk_section(
+    text: str,
+    target_words: int = 150,
+    overlap_ratio: float = 0.3,
+    max_expand: int = 40,
+) -> List[Dict]:
     """
-    Automatically splits section text into chunks of TARGET_WORDS_PER_CHUNK
+    Smarter chunker for plagiarism detection.
+
+    ✔ Uses overlapping windows (default overlap = 30%)
+    ✔ Tries to end chunk on sentence boundaries
+    ✔ Soft-expands to finish the sentence (max +40 words)
+    ✔ Prevents splitting plagiarized text across chunks
     """
+
     if not text.strip():
         return []
 
-    words = re.sub(r'\s+', ' ', text).strip().split()
+    # Normalize whitespace
+    words = re.sub(r"\s+", " ", text).strip().split()
+    num_words = len(words)
+
+    # Overlap count
+    overlap_words = int(target_words * overlap_ratio)
+
     chunks = []
-    start_idx = 0
+    start = 0
     chunk_counter = 1
 
-    while start_idx < len(words):
-        end_idx = start_idx + getattr(configs, "TARGET_WORDS_PER_CHUNK", 150)
-        chunk_words = words[start_idx:end_idx]
+    while start < num_words:
+
+        # Raw chunk
+        raw_end = min(start + target_words, num_words)
+        chunk_words = words[start:raw_end]
+
+        # Try sentence boundary alignment
         chunk_text = " ".join(chunk_words)
+        sentences = split_sentences_fallback(chunk_text)
+    
+
+        # If more than 1 sentence, use full last sentence to close chunk
+        if len(sentences) > 1:
+            # If last sentence is short, include it to avoid cutting in half
+            last_sentence = sentences[-1].split()
+            if len(last_sentence) < max_expand:
+                chunk_words = words[start : start + len(" ".join(sentences).split())]
+
+        # Create final text
+        final_chunk_text = " ".join(chunk_words)
+
+        # Assign chunk ID
         chunk_id = f"chunk_{chunk_counter}_{uuid.uuid4().hex[:8]}"
+
         chunks.append({
             "chunk_id": chunk_id,
-            "text": chunk_text,
+            "text": final_chunk_text,
             "word_count": len(chunk_words)
         })
-        start_idx = end_idx
+
+        # Move the window with overlap
+        start = start + target_words - overlap_words
         chunk_counter += 1
 
     return chunks

@@ -4,7 +4,7 @@ from typing import Dict, List
 from .section_merger import merge_chunks_to_blocks, auto_chunk_section
 from .query_generator import generate_query_for_block
 from .perplexity_client import call_perplexity
-from .google_client import search_google, search_bing
+from .google_client import search_google, search_bing, search_google_advanced
 from .web_fetcher import fetch_full_text
 from .similarity_engine import score_text_pair
 from . import configs
@@ -36,6 +36,7 @@ def process_document(doc: Dict) -> Dict:
     for section in doc.get("sections", []):
         sec_name = section.get("name", "section")
         chunks = section.get("chunks")
+
         if not chunks:
             text = section.get("text", "")
             if not text.strip():
@@ -49,64 +50,72 @@ def process_document(doc: Dict) -> Dict:
             max_words=configs.MAX_WORDS_PER_BLOCK
         )
 
-        for block in blocks:
+        # Limit Google usage
+        max_google_chunks = getattr(configs, "MAX_GOOGLE_CHUNKS", 3)
+
+        for idx, block in enumerate(blocks):
+            # -------------------------
+            # Generate query and key sentences first
+            # -------------------------
             qres = generate_query_for_block(block)
             query = qres["query"]
             key_sentences = qres["key_sentences"]
 
-            # --- Candidate retrieval ---
+            # -------------------------
+            # 1. GOOGLE ADVANCED SEARCH (limited)
+            # -------------------------
+            google_results = []
+            if idx < max_google_chunks and key_sentences.strip():
+                try:
+                    # Use key sentences for all_words or important_words
+                    google_results = search_google_advanced(
+                        all_words=key_sentences,       # split keywords automatically
+                        important_words=key_sentences, # optional: emphasize these words
+                        top_k=configs.TOP_K_RESULTS
+                    )
+                    for r in google_results:
+                        r["source"] = "google_advanced"
+                except Exception as e:
+                    logger.warning("Google Advanced search failed: %s", e)
+
+            # Track URLs to avoid duplicates
+            seen_urls = {r.get("url") for r in google_results if r.get("url")}
+
+            # -------------------------
+            # 2. PERPLEXITY (normal logic — unchanged)
+            # -------------------------
             try:
                 perplex_results = call_perplexity(query, top_k=configs.TOP_K_RESULTS)
             except Exception as e:
                 logger.warning("Perplexity call failed: %s", e)
                 perplex_results = []
 
-            do_fallback = _choose_fallback(perplex_results, getattr(configs, "PERPLEXITY_CONFIDENCE_THRESHOLD", 0.5))
-            used_results = []
+            # Remove duplicates from Perplexity results
+            filtered_perplex = []
+            for r in perplex_results:
+                if r.get("url") not in seen_urls:
+                    r["source"] = "perplexity"
+                    filtered_perplex.append(r)
+                    seen_urls.add(r.get("url"))
 
-            if not do_fallback and perplex_results:
-                for r in perplex_results:
-                    r["source_origin"] = "perplexity"
-                used_results = perplex_results[:configs.TOP_K_RESULTS]
-            else:
-                google_results = search_google(query, top_k=configs.TOP_K_RESULTS)
-                if google_results:
-                    for r in google_results:
-                        r["source_origin"] = "google_api"
-                    used_results = google_results[:configs.TOP_K_RESULTS]
-                else:
-                    bing_results = search_bing(query, top_k=configs.TOP_K_RESULTS)
-                    for r in bing_results:
-                        r["source_origin"] = "bing_api"
-                    used_results = bing_results[:configs.TOP_K_RESULTS]
+            # -------------------------
+            # 3. Combine: final candidates for this block
+            # -------------------------
+            candidate_urls = google_results + filtered_perplex
 
-            matches = []
-            for candidate in used_results:
-                url = candidate.get("url")
-                title = candidate.get("title")
-                snippet = candidate.get("snippet") or ""
-                article_text = fetch_full_text(url) if url else snippet
-                if not article_text:
-                    article_text = snippet
-
-                embed_sim, ngram_sim, combined, exact_sim = score_text_pair(block["text"], article_text)
-                confidence_label = _label_from_score(combined)
-
-                matches.append({
-                    "url": url,
-                    "title": title,
-                    "snippet": snippet,
-                    "similarity": float(combined),
-                    "embedding_similarity": float(embed_sim),
-                    "ngram_similarity": float(ngram_sim),
-                    "exact_match_score": float(exact_sim),
-                    "confidence_label": confidence_label,
-                    "source": candidate.get("source_origin", "unknown"),
-                    "source_confidence_raw": candidate.get("score")
+            # Keep only essential metadata
+            cleaned_candidates = []
+            for c in candidate_urls:
+                cleaned_candidates.append({
+                    "url": c.get("url"),
+                    "title": c.get("title"),
+                    "snippet": c.get("snippet"),
+                    "source": c.get("source")
                 })
 
-            matches = sorted(matches, key=lambda x: x["similarity"], reverse=True)[:configs.TOP_K_RESULTS]
-
+            # -------------------------
+            # 4. Save block output
+            # -------------------------
             out["blocks"].append({
                 "block_id": block["block_id"],
                 "section": sec_name,
@@ -114,10 +123,12 @@ def process_document(doc: Dict) -> Dict:
                 "word_count": block.get("word_count", 0),
                 "query": query,
                 "key_sentences": key_sentences,
-                "matches": matches
+                "candidates": cleaned_candidates
             })
 
+
     return out
+
 
 def run_from_file(input_path: str, output_path: str):
     with open(input_path, "r", encoding="utf-8") as f:
