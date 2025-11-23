@@ -17,7 +17,7 @@ PERPLEXITY_TOP_K = int(os.getenv("PERPLEXITY_TOP_K", 10))
 # ============================================================
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")  # e.g. "44a2f0902c54847e4"
-GOOGLE_NUM_RESULTS = int(os.getenv("GOOGLE_NUM_RESULTS", 5))
+GOOGLE_NUM_RESULTS = int(os.getenv("GOOGLE_NUM_RESULTS", 2))
 
 
 # ============================================================
@@ -75,7 +75,7 @@ HTTP_USER_AGENT = os.getenv("HTTP_USER_AGENT", "Mozilla/5.0 (DF-Project/1.0)")
 MAX_FETCHED_TEXT_CHARS = int(os.getenv("MAX_FETCHED_TEXT_CHARS", 20000))
 
 # Max number of chunks per section to send to Google Advanced Search
-MAX_GOOGLE_CHUNKS = 3  # adjust as needed
+MAX_GOOGLE_CHUNKS = 2  # adjust as needed
 
 
 # ============================================================

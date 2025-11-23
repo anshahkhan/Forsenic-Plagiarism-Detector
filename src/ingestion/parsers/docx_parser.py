@@ -5,13 +5,9 @@ from docx import Document
 from ..utils import normalize_metadata, detect_language, section_splitter
 
 def parse_docx(path: str) -> Dict[str, Any]:
-    """
-    Parse a DOCX file into normalized JSON.
-    """
     doc_id = uuid.uuid4().hex
     doc = Document(path)
 
-    # Extract text by paragraphs (preserve headings heuristically)
     paragraphs = []
     headings = []
     for p in doc.paragraphs:
@@ -22,6 +18,7 @@ def parse_docx(path: str) -> Dict[str, Any]:
             headings.append(text)
 
     raw_text = "\n\n".join([p for p in paragraphs if p])
+
     metadata = {
         "file_type": "docx",
         "num_pages": None,
@@ -29,18 +26,32 @@ def parse_docx(path: str) -> Dict[str, Any]:
         "author": None,
     }
 
-    # python-docx does not expose core properties reliably in all versions
+    # Safe extraction and conversion of core properties
     try:
         core = doc.core_properties
+        created = getattr(core, "created", None)
+        modified = getattr(core, "modified", None)
+
+        # Convert datetime to ISO string if exists
+        created_str = created.isoformat() if created else None
+        modified_str = modified.isoformat() if modified else None
+
         metadata = {**metadata, **normalize_metadata({
             "title": core.title,
             "author": core.author,
-            "created": getattr(core, "created", None),
-            "modified": getattr(core, "modified", None),
+            "created": created_str,
+            "modified": modified_str,
         })}
     except Exception:
         pass
 
     sections = section_splitter(raw_text, [raw_text])
     metadata["language"] = detect_language(raw_text)
-    return {"doc_id": doc_id, "sections": sections, "metadata": metadata, "raw_text": raw_text, "images": []}
+
+    return {
+        "doc_id": doc_id,
+        "sections": sections,
+        "metadata": metadata,
+        "raw_text": raw_text,
+        "images": []
+    }
