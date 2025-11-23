@@ -5,6 +5,7 @@ import json
 import tempfile
 import os
 from src.similarity_search.pipeline import process_document
+from src.similarity_search.module3_engine import process_module3  # Module 3
 
 router = APIRouter(
     prefix="/similarity",
@@ -54,3 +55,54 @@ async def similarity_from_json(doc: dict):
         return JSONResponse(content=output)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
+
+
+@router.post("/module3/from_json")
+async def module3_from_json(module2_output: dict):
+    """
+    Accepts Module 2 output (URLs), runs Module 3 to find exact content matches,
+    returns Module 3 JSON.
+    """
+    if "blocks" not in module2_output:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid input: expected Module 2 output JSON with 'blocks' field."
+        )
+    try:
+        module3_output = process_module3(module2_output)
+        return JSONResponse(content=module3_output)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Module 3 processing failed: {str(e)}"
+        )
+
+
+@router.post("/module3/from_file")
+async def module3_from_file(file: UploadFile = File(...)):
+    """
+    Accepts a JSON file (Module 2 output with URLs),
+    runs Module 3 forensic evidence extraction,
+    returns Module 3 JSON.
+    """
+    if not getattr(file, "filename", "").endswith(".json"):
+        raise HTTPException(status_code=400, detail="Only JSON files are accepted.")
+
+    tmp_path = None
+    try:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as tmp:
+            tmp.write(await file.read())
+            tmp.flush()
+            tmp_path = tmp.name
+
+        with open(tmp_path, "r", encoding="utf-8") as f:
+            module2_json = json.load(f)
+
+        module3_output = process_module3(module2_json)
+        return JSONResponse(content=module3_output)
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Module 3 processing failed: {str(e)}")
+    finally:
+        if tmp_path and os.path.exists(tmp_path):
+            os.remove(tmp_path)
