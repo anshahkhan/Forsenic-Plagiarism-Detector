@@ -75,7 +75,7 @@ HTTP_USER_AGENT = os.getenv("HTTP_USER_AGENT", "Mozilla/5.0 (DF-Project/1.0)")
 MAX_FETCHED_TEXT_CHARS = int(os.getenv("MAX_FETCHED_TEXT_CHARS", 20000))
 
 # Max number of chunks per section to send to Google Advanced Search
-MAX_GOOGLE_CHUNKS = 2  # adjust as needed
+MAX_GOOGLE_CHUNKS = 1  # adjust as needed
 
 
 # ============================================================
