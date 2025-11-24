@@ -242,7 +242,7 @@ async def paraphrase_match_evidence(sentences: List[str],
         # --------------------
 
         overlap = round(len(set(sent.split()) & set(normalize_text(snippet).split())) / max(len(sent.split()), 1), 2)
-
+        ev_type = "exact_match" if (sem_score > 0.85 or overlap > 0.9) else "paraphrased_match"
         evidence.append({
             "sentence": sent,
             "type": "paraphrased_match",
