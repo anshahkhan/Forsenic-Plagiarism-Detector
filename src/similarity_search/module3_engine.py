@@ -14,15 +14,24 @@ nlp = spacy.load("en_core_web_sm")
 
 def is_meaningful_sentence(text: str) -> bool:
     """
-    Returns True if the text is a proper meaningful sentence.
+    Returns True only if sentence is meaningful:
+    - At least 5–6 words
+    - Contains a verb
+    - Not a stopword fragment
     """
     text = text.strip()
-    if len(text.split()) < 3:  # too short, probably meaningless
+    words = text.split()
+
+    if len(words) < 5:  # prevents "to prevent"
         return False
-    doc = nlp(text)
-    has_verb = any(tok.pos_ == "VERB" for tok in doc)
-    has_nsubj = any(tok.dep_ in {"nsubj", "nsubjpass"} for tok in doc)
-    return has_verb and has_nsubj
+
+    # Must contain a verb (basic heuristic)
+    verb_markers = ["is", "are", "was", "were", "be", "can", "has", "have", "does", "did", "shall", "will"]
+    if not any(v in text.lower() for v in verb_markers):
+        return False
+
+    return True
+
 
 # -----------------------------
 # Helper functions
@@ -86,8 +95,8 @@ def extract_best_snippet(sentence: str, source_text: str) -> str:
 def exact_match_evidence(sentences: List[str], source_text: str, source_url: str) -> List[Dict[str, Any]]:
     """
     Generate exact match evidence for sentences found inside source_text.
-    Uses sentence-level expansion to capture partial matches.
-    Only counts as exact match if the sentence is meaningful.
+    Ensures that both original sentence and source snippet are meaningful.
+    Applies sentence-level expansion.
     """
     evidence = []
     source_sentences = split_sentences(source_text)
@@ -95,45 +104,58 @@ def exact_match_evidence(sentences: List[str], source_text: str, source_url: str
 
     for sent in sentences:
         sent_norm = normalize_text(sent)
+
+        # ❗Skip if original sentence itself is not meaningful
+        if not is_meaningful_sentence(sent):
+            continue
+
         matched = False
 
         # 1️⃣ Try full sentence match
-        if sent_norm in source_text_norm and is_meaningful_sentence(sent):
+        if sent_norm in source_text_norm:
             start_idx = source_text_norm.find(sent_norm)
             end_idx = start_idx + len(sent_norm)
             snippet = source_text[start_idx:end_idx]
-            sem_score = semantic_similarity(sent, snippet)
 
-            evidence.append({
-                "sentence": sent,
-                "type": "exact_match",
-                "source_text": snippet,
-                "plagiarism_score": 0.99,
-                "semantic_similarity": round(sem_score, 2),
-                "source_url": source_url,
-                "highlights": [{"start": 0, "end": len(snippet), "type": "exact"}]
-            })
-            matched = True
+            # ❗Check snippet meaningfulness
+            if is_meaningful_sentence(snippet):
+                sem_score = semantic_similarity(sent, snippet)
+                evidence.append({
+                    "sentence": sent,
+                    "type": "exact_match",
+                    "source_text": snippet,
+                    "plagiarism_score": 0.99,
+                    "semantic_similarity": round(sem_score, 2),
+                    "source_url": source_url,
+                    "highlights": [{"start": 0, "end": len(snippet), "type": "exact"}]
+                })
+                matched = True
 
-        # 2️⃣ Sentence-level expansion if full match not found
+        # 2️⃣ Sentence-level expansion
         if not matched:
             for i, src_sent in enumerate(source_sentences):
-                if sent_norm in normalize_text(src_sent):
-                    # Expand forward and backward
+                src_norm = normalize_text(src_sent)
+
+                if sent_norm in src_norm:
+                    # Expand one sentence backward and one forward
                     expanded_sents = source_sentences[max(0, i-1): min(len(source_sentences), i+2)]
                     snippet = " ".join(expanded_sents)
-                    if is_meaningful_sentence(snippet):
-                        sem_score = semantic_similarity(sent, snippet)
-                        evidence.append({
-                            "sentence": sent,
-                            "type": "exact_match",
-                            "source_text": snippet,
-                            "plagiarism_score": 0.99,
-                            "semantic_similarity": round(sem_score, 2),
-                            "source_url": source_url,
-                            "highlights": [{"start": 0, "end": len(snippet), "type": "exact"}]
-                        })
-                        break  # Stop after first expansion match
+
+                    # ❗Check snippet meaningfulness
+                    if not is_meaningful_sentence(snippet):
+                        continue
+
+                    sem_score = semantic_similarity(sent, snippet)
+                    evidence.append({
+                        "sentence": sent,
+                        "type": "exact_match",
+                        "source_text": snippet,
+                        "plagiarism_score": 0.99,
+                        "semantic_similarity": round(sem_score, 2),
+                        "source_url": source_url,
+                        "highlights": [{"start": 0, "end": len(snippet), "type": "exact"}]
+                    })
+                    break
 
     return evidence
 
@@ -141,25 +163,34 @@ def exact_match_evidence(sentences: List[str], source_text: str, source_url: str
 def paraphrase_match_evidence(sentences: List[str], source_text: str, source_url: str, skip_sents: set) -> List[Dict[str, Any]]:
     evidence = []
     source_text_norm = normalize_text(source_text)
+    
     for sent in sentences:
         if sent in skip_sents:
             continue
+        
         sent_words = set(sent.split())
         src_words = source_text_norm.split()
         overlap = len(sent_words & set(src_words)) / max(len(sent_words), 1)
+        
         if 0.4 <= overlap < 0.99:  # Exclude exact matches
             snippet = extract_best_snippet(sent, source_text_norm)
             sem_score = semantic_similarity(sent, snippet)
+
+            # Promote to exact_match if semantic similarity is high
+            ev_type = "exact_match" if (sem_score > 0.85 or overlap > 0.90) else "paraphrased_match"
+            
             evidence.append({
                 "sentence": sent,
-                "type": "paraphrased_match",
+                "type": ev_type,
                 "source_text": snippet,
-                "plagiarism_score": round(overlap, 2),              # overlap > threshold , mark as exact
+                "plagiarism_score": round(overlap, 2),  # keep original overlap score
                 "semantic_similarity": round(sem_score, 2),
                 "source_url": source_url,
-                "highlights": [{"start": 0, "end": len(snippet), "type": "paraphrase"}]
+                "highlights": [{"start": 0, "end": len(snippet), "type": ev_type}]
             })
+    
     return evidence
+
 
 def idea_similarity_evidence(sentence: str) -> Dict[str, Any]:
     return {
