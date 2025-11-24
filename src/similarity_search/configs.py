@@ -82,3 +82,8 @@ MAX_GOOGLE_CHUNKS = 2  # adjust as needed
 # 🧪 Debugging
 # ============================================================
 ENABLE_DEBUG_LOGS = os.getenv("ENABLE_DEBUG_LOGS", "false").lower() == "true"
+
+# ============================================================
+# 📄 PDF Scraping Toggle for Module 3
+# ============================================================
+ALLOW_PDF_SCRAPING = os.getenv("ALLOW_PDF_SCRAPING", "false").lower() == "true"
