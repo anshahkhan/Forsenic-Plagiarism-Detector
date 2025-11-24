@@ -4,6 +4,7 @@ from src.api.ingestion_api import router as ingestion_router
 from src.api.similarity_api import router as similarity_router
 from src.api.forsenics_api import router as forsenics_router
 from src.api.pipeline_api import router as pipeline_router
+from src.api.JsonUI import router as JsonUI
 
 from src.api.newjson import router as Clean_router
 app = FastAPI(title="DF Project - MVP")
@@ -19,6 +20,7 @@ app.include_router(forsenics_router)
 
 app.include_router(pipeline_router)
 app.include_router(Clean_router)
+app.include_router(JsonUI)
 
 @app.get("/")
 def read_root():

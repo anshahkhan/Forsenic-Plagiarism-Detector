@@ -10,7 +10,7 @@ def _compute_score(item: Module3Item) -> float:
     plag = item.plagiarism_score
     return (sem + plag) / 2.0
 
-
+'''
 def clean_module3_output(items: List[Module3Item]) -> List[CleanedSentence]:
     """
     Clean Module 3 output according to updated rules:
@@ -62,5 +62,55 @@ def clean_module3_output(items: List[Module3Item]) -> List[CleanedSentence]:
                 occurrences=len(evidences)
             )
         )
+
+    return cleaned_sentences
+'''
+
+def clean_module3_output(items: List[Module3Item]) -> List[Dict[str, Any]]:
+    """
+    Clean Module 3 output and return as list of dicts:
+    
+    1. Each sentence occurrence gets its own score = (semantic + plagiarism)/2.
+    2. If sentence repeats 1–3 times: keep all.
+    3. If sentence repeats >3 times: keep top 3 by score.
+    4. Returns list of dicts with keys:
+       sentence, sources (list of dicts), aggregated_score, occurrences
+    """
+    grouped = defaultdict(list)
+
+    # group items by sentence
+    for item in items:
+        grouped[item.sentence].append(item)
+
+    cleaned_sentences: List[Dict[str, Any]] = []
+
+    for sentence, evidences in grouped.items():
+        # calculate score for each occurrence
+        scored_sources: List[Dict[str, Any]] = []
+        for ev in evidences:
+            score = _compute_score(ev)
+            scored_sources.append({
+                "source_text": ev.source_text,
+                "source_url": ev.source_url,
+                "plagiarism_score": ev.plagiarism_score,
+                "semantic_similarity": ev.semantic_similarity,
+                "score": round(score, 4),
+                "highlights": ev.highlights or []
+            })
+
+        # if more than 3 occurrences, keep top 3 by score
+        if len(scored_sources) > 3:
+            scored_sources.sort(key=lambda s: s["score"], reverse=True)
+            scored_sources = scored_sources[:3]
+
+        # average score across kept sources
+        aggregated_score = round(sum(s["score"] for s in scored_sources) / len(scored_sources), 4)
+
+        cleaned_sentences.append({
+            "sentence": sentence,
+            "sources": scored_sources,
+            "aggregated_score": aggregated_score,
+            "occurrences": len(evidences)
+        })
 
     return cleaned_sentences
