@@ -7,10 +7,12 @@ import os
 from src.similarity_search.pipeline import process_document
 from src.similarity_search.module3_engine import process_module3  # Module 3
 
+from typing import List, Dict, Any
 router = APIRouter(
     prefix="/similarity",
     tags=["similarity_search"]
 )
+processed_module3_cache = {}  # key: doc_id, value: processed JSON
 
 @router.post("/from_file")
 async def similarity_from_file(file: UploadFile = File(...)):

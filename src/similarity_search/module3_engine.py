@@ -132,6 +132,7 @@ def extract_best_snippet(sentence: str, source_text: str) -> str:
     return " ".join(words[best_start:best_end]) if max_overlap > 0 else source_text[:min(200, len(source_text))]
 
 
+
 def idea_similarity_evidence(sentence: str) -> Dict[str, Any]:
     return {
         "sentence": sentence,
