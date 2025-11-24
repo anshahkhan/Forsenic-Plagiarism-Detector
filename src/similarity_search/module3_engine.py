@@ -1,7 +1,7 @@
 import re
 from typing import List, Dict, Any, Optional, Tuple, Iterable
 from ahocorasick import Automaton
-from src.ingestion.utils import split_sentences, normalize_text, get_ngrams
+from src.ingestion.utils import split_sentences, normalize_text, get_ngrams, split_sentences_with_offsets
 from src.similarity_search.web_fetcher import fetch_full_text
 from src.similarity_search import configs
 from src.similarity_search.similarity_engine import semantic_similarity
@@ -15,6 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 import mimetypes
 from functools import partial
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -56,6 +57,35 @@ async def batch_spacy_process(texts: Iterable[str], batch_size: int = 64) -> Lis
 
 async def async_semantic_similarity(a: str, b: str) -> float:
     return await run_in_executor(semantic_similarity, a, b)
+
+
+def compute_character_highlight_spans(sent, src):
+    spans = []
+    sent_words = set(sent.split())
+
+    for w in sent_words:
+        start = src.lower().find(w.lower())
+        if start != -1:
+            spans.append({
+                "start": start,
+                "end": start + len(w),
+                "type": "paraphrase"
+            })
+    return spans
+
+
+def compute_sentence_highlight(sent, src):
+    sent_words = sent.split()
+    src_words = set(src.split())
+
+    highlights = []
+    for w in sent_words:
+        highlights.append({
+            "word": w,
+            "match": w in src_words,
+            "type": "overlap" if w in src_words else "none"
+        })
+    return highlights
 
 
 # ============================================================
@@ -151,7 +181,8 @@ def idea_similarity_evidence(sentence: str) -> Dict[str, Any]:
 async def exact_match_evidence(sentences: List[str],
                                source_text: str,
                                source_url: str,
-                               meaningful_flags: Optional[List[bool]] = None) -> List[Dict[str, Any]]:
+                               meaningful_flags: Optional[List[bool]] = None,
+                               offset_map: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
     evidence = []
     source_sentences = split_sentences(source_text)
     source_text_norm = normalize_text(source_text)
@@ -197,16 +228,27 @@ async def exact_match_evidence(sentences: List[str],
             "plagiarism_score": 0.99,
             "semantic_similarity": round(sem_score, 2),
             "source_url": src_url,
+
+            # NEW FIELDS
+            "document_offset": (offset_map or {}).get(sent, None),
+            "sentence_level_highlight": compute_sentence_level_highlight(sent, snippet),
+
+            # OLD FIELDS (unchanged)
             "highlights": [{"start": 0, "end": len(snippet), "type": "exact"}]
         })
+
     return evidence
 
+async def paraphrase_match_evidence(
+    sentences: List[str],
+    source_text: str,
+    source_url: str,
+    skip_sents: set,
+    offset_map: Dict[str, Dict[str, int]],              # NEW
+    source_offset_map: Optional[Dict[str, Dict[str, int]]] = None,  # NEW
+    meaningful_flags: Optional[List[bool]] = None
+) -> List[Dict[str, Any]]:
 
-async def paraphrase_match_evidence(sentences: List[str],
-                                    source_text: str,
-                                    source_url: str,
-                                    skip_sents: set,
-                                    meaningful_flags: Optional[List[bool]] = None) -> List[Dict[str, Any]]:
     evidence = []
     source_text_norm = normalize_text(source_text)
 
@@ -215,6 +257,7 @@ async def paraphrase_match_evidence(sentences: List[str],
 
     tasks = []
     for idx, sent in enumerate(sentences):
+
         if sent in skip_sents:
             continue
         if not meaningful_flags[idx]:
@@ -222,35 +265,63 @@ async def paraphrase_match_evidence(sentences: List[str],
 
         sent_words = set(sent.split())
         src_words = source_text_norm.split()
+
         overlap = len(sent_words & set(src_words)) / max(len(sent_words), 1)
 
+        # paraphrased range
         if 0.4 <= overlap < 0.99:
             snippet = extract_best_snippet(sent, source_text_norm)
-            tasks.append((sent, snippet, source_url))
 
+            # define orig + source sentence properly
+            orig_sentence = sent
+            source_sentence = snippet
+
+            tasks.append((orig_sentence, source_sentence, source_url))
+
+    # async semantic similarity for all tasks
     sem_tasks = [async_semantic_similarity(t[0], t[1]) for t in tasks]
     sem_scores = await asyncio.gather(*sem_tasks, return_exceptions=True)
 
-    for (sent, snippet, src_url), sem_score in zip(tasks, sem_scores):
+    for (orig_sentence, source_sentence, src_url), sem_score in zip(tasks, sem_scores):
 
-        # --- PATCHED HERE ---
         if isinstance(sem_score, BaseException):
             logger.warning("semantic_similarity failed for paraphrase: %s", sem_score)
             sem_score = 0.0
         else:
             sem_score = float(sem_score)
-        # --------------------
 
-        overlap = round(len(set(sent.split()) & set(normalize_text(snippet).split())) / max(len(sent.split()), 1), 2)
-        ev_type = "exact_match" if (sem_score > 0.85 or overlap > 0.9) else "paraphrased_match"
+        plagiarism_overlap = round(
+            len(set(orig_sentence.split()) & set(normalize_text(source_sentence).split())) /
+            max(len(orig_sentence.split()), 1), 2
+        )
+
+        # sentence-level highlight (color per word matched)
+        sentence_level_highlight = compute_sentence_level_highlight(
+            orig_sentence,
+            source_sentence
+        )
+
+        # character-level spans inside the source snippet
+        char_spans = compute_character_highlight_spans(orig_sentence, source_sentence)
+
+        # compute document offset of the matched snippet
+        doc_offset = source_offset_map.get(source_sentence, None) if source_offset_map else None
+
         evidence.append({
-            "sentence": sent,
+            "sentence": orig_sentence,
             "type": "paraphrased_match",
-            "source_text": snippet,
-            "plagiarism_score": overlap,
+            "source_text": source_sentence,
+            "plagiarism_score": plagiarism_overlap,
             "semantic_similarity": round(sem_score, 2),
             "source_url": src_url,
-            "highlights": [{"start": 0, "end": len(snippet), "type": "paraphrase"}]
+
+            # NEW
+            "document_offset": offset_map.get(orig_sentence, None),
+            "source_document_offset": doc_offset,
+
+            # NEW
+            "sentence_level_highlight": sentence_level_highlight,
+            "highlights": char_spans
         })
 
     return evidence
@@ -317,6 +388,24 @@ async def fetch_urls_in_batches_async(urls: List[str], batch_size: int = 20, con
     return results
 
 
+def compute_sentence_level_highlight(sentence: str, source_text: str):
+    """
+    Finds best matching substring inside sentence using difflib.
+    """
+    import difflib
+    matcher = difflib.SequenceMatcher(None, sentence, source_text)
+    match = matcher.find_longest_match(0, len(sentence), 0, len(source_text))
+
+    if match.size < 5:
+        return None
+
+    return {
+        "start": match.a,
+        "end": match.a + match.size
+    }
+
+
+
 # ============================================================
 # Main Evidence Generator
 # ============================================================
@@ -324,7 +413,11 @@ async def generate_sentence_level_evidence_async(block: Dict[str, Any],
                                                  batch_size: int = 20,
                                                  concurrency: int = 20,
                                                  nlp_batch_size: int = 64):
-    sentences = split_sentences(block.get("key_sentences", ""))
+
+    sentences_with_offsets = split_sentences_with_offsets(block.get("key_sentences", ""))
+    sentences = [s["sentence"] for s in sentences_with_offsets]
+    offset_map = {s["sentence"]: {"start": s["start"], "end": s["end"]} for s in sentences_with_offsets}
+
     if not sentences:
         return {"evidence": [], "skipped_pdf_urls": []}
 
@@ -344,6 +437,12 @@ async def generate_sentence_level_evidence_async(block: Dict[str, Any],
     exact_matched = set()
     paraphrased_matched = set()
 
+    # ⬇️ ADD HERE — BEFORE THE CANDIDATE LOOP
+    source_offset_map = {}
+
+    # -------------------------------
+    #     📌 CANDIDATE LOOP STARTS
+    # -------------------------------
     for candidate in block.get("candidates", []):
         url = candidate.get("url")
         snippet = candidate.get("snippet", "")
@@ -351,18 +450,35 @@ async def generate_sentence_level_evidence_async(block: Dict[str, Any],
         if not source_text:
             continue
 
-        ex = await exact_match_evidence(sentences, source_text, url, meaningful_flags=meaningful_flags)
+        ex = await exact_match_evidence(
+            sentences,
+            source_text,
+            url,
+            meaningful_flags=meaningful_flags,
+            offset_map=offset_map
+        )
         evidence_list.extend(ex)
         exact_matched.update(ev["sentence"] for ev in ex)
 
         remaining = [s for s in sentences if s not in exact_matched]
+
         if remaining:
             idx_map = {s: i for i, s in enumerate(sentences)}
             remaining_flags = [meaningful_flags[idx_map[s]] for s in remaining]
-            pr = await paraphrase_match_evidence(remaining, source_text, url, skip_sents=set(), meaningful_flags=remaining_flags)
+
+            pr = await paraphrase_match_evidence(
+                remaining,
+                source_text,
+                url,
+                skip_sents=set(),
+                offset_map=offset_map,
+                source_offset_map=source_offset_map,
+                meaningful_flags=remaining_flags
+            )
             evidence_list.extend(pr)
             paraphrased_matched.update(ev["sentence"] for ev in pr)
 
+    # Idea match fallback
     for s in sentences:
         if s not in exact_matched and s not in paraphrased_matched:
             evidence_list.append(idea_similarity_evidence(s))
@@ -371,6 +487,7 @@ async def generate_sentence_level_evidence_async(block: Dict[str, Any],
         "evidence": evidence_list,
         "skipped_pdf_urls": skipped_pdfs
     }
+
 
 
 # ============================================================

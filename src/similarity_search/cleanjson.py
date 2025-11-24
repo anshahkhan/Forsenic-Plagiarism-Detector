@@ -6,8 +6,8 @@ from src.models.module3_models import Module3Item, CleanedSentence, CleanedSourc
 
 
 def _compute_score(item: Module3Item) -> float:
-    sem = item.semantic_similarity 
-    plag = item.plagiarism_score
+    sem = item.semantic_similarity if item.semantic_similarity is not None else 0.0
+    plag = item.plagiarism_score if item.plagiarism_score is not None else 0.0
     return (sem + plag) / 2.0
 
 
