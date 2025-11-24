@@ -1,0 +1,1991 @@
+{
+  "doc_id": "e2e25fc2398d4147b2b3a82759081ef6",
+  "results": [
+    {
+      "block_id": "block_0",
+      "evidence": [
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "2021 Final! . The OWASP Top 10 is a standard awareness document for developers and web application",
+          "plagiarism_score": 0.76,
+          "source_url": "https://owasp.org/www-project-top-ten/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 98,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "to conduct a survey to identify up to two categories of the Top Ten",
+          "plagiarism_score": 0.71,
+          "source_url": "https://owasp.org/www-project-top-ten/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 67,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "and GitHub repository. The OWASP Top Ten is a standard awareness document for developers and web application",
+          "plagiarism_score": 0.71,
+          "source_url": "https://www.owasptopten.org",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 108,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "2025 The OWASP Top Ten 2021 The Data The Survey The Making of the",
+          "plagiarism_score": 0.43,
+          "source_url": "https://www.owasptopten.org",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 65,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "Release) OWASP Top 10:2021 (Current Release) Introduction Notice How to use the OWASP Top 10 as a",
+          "plagiarism_score": 0.47,
+          "source_url": "https://owasp.org/Top10/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 97,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "Top 10:2025 (Release Candidate) Introduction About OWASP What are Application Security Risks? Establishing a",
+          "plagiarism_score": 0.5,
+          "source_url": "https://owasp.org/Top10/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 108,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "pages OWASP Top 10 - 2017: The Ten Most Critical Web Application Security Risks Top 10 security",
+          "plagiarism_score": 0.41,
+          "source_url": "https://www.scribd.com/document/365405658/OWASP-Top-10-2017",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 95,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "OWASP Top 10 - 2017: The Ten Most Critical Web Application Security Risks |",
+          "plagiarism_score": 0.57,
+          "source_url": "https://www.scribd.com/document/365405658/OWASP-Top-10-2017",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 75,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "about the consequences of the most common and most important web application security weaknesses.... The Top 10",
+          "plagiarism_score": 0.76,
+          "source_url": "https://www.studocu.com/in/document/apj-abdul-kalam-technological-university/cyber-security-cryptography/mod5-owasp-top-10-2017/84962331",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 111,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "#### OWASP Top 10 - 2017 ####### The Ten Most Critical Web Application Security",
+          "plagiarism_score": 0.71,
+          "source_url": "https://www.studocu.com/in/document/apj-abdul-kalam-technological-university/cyber-security-cryptography/mod5-owasp-top-10-2017/84962331",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 79,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "References The OWASP Top 10focuses on identifying the most serious web application OWASP security risks for a",
+          "plagiarism_score": 0.76,
+          "source_url": "https://css.csail.mit.edu/6.566/2019/readings/owasp-top-10.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 109,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "OWASP Top 10 - 2017 The Ten Most Critical Web Application Security Risks This",
+          "plagiarism_score": 0.71,
+          "source_url": "https://css.csail.mit.edu/6.566/2019/readings/owasp-top-10.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 77,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "dev community. These days, the OWASP Top 10 serves as a pseudo- standard for web application security",
+          "plagiarism_score": 0.76,
+          "source_url": "https://www.kiuwan.com/wp-content/uploads/2024/05/OWASP-2021-Ebook.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 101,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "The top 10 risks make it to the OWASP Top Ten, a list of",
+          "plagiarism_score": 0.71,
+          "source_url": "https://www.kiuwan.com/wp-content/uploads/2024/05/OWASP-2021-Ebook.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 56,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "web application security continues to evolve, the OWASP Top 10 threats provides a robust framework for developers",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.jit.io/resources/security-standards/the-in-depth-guide-to-owasps-top-10-vulnerabilities",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 113,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "first need to be aware of them. That’s where the OWASP Top 10 list",
+          "plagiarism_score": 0.71,
+          "source_url": "https://www.jit.io/resources/security-standards/the-in-depth-guide-to-owasps-top-10-vulnerabilities",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 66,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "(FTC) regularly reference the OWASP Top 10 as an integral guide for mitigating Web application vulnerabilities and",
+          "plagiarism_score": 0.71,
+          "source_url": "https://en.wikipedia.org/wiki/OWASP",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 114,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "Website owasp .org OWASP , the Open Worldwide Application Security Project (formerly Open Web",
+          "plagiarism_score": 0.71,
+          "source_url": "https://en.wikipedia.org/wiki/OWASP",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 93,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The OWASP Top 10 serves as a widely recognized guide for developers and web application security professionals.",
+          "type": "paraphrased_match",
+          "source_text": "and updating affect the overall security of a web application as discussed in the OWASP Top 10",
+          "plagiarism_score": 0.82,
+          "source_url": "https://css.csail.mit.edu/6.858/2014/readings/owasp-top-10.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 94,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Top Ten Web Application Security Risks:  OWASP publishes a list of the “OWASP Top",
+          "type": "paraphrased_match",
+          "source_text": "Summary The following table presents a summary of the 2013 Top 10 Application Security",
+          "plagiarism_score": 0.64,
+          "source_url": "https://css.csail.mit.edu/6.858/2014/readings/owasp-top-10.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 86,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block_id": "block_1",
+      "evidence": [
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "Jan 21, 2024 ... Community Collaboration: OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, ...",
+          "plagiarism_score": 0.77,
+          "source_url": "https://medium.com/@prathapkbutta/what-is-owasp-e5962241f2d2",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 164,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "passion for security. This is your chance to connect, learn, and grow with some of the brightest minds in the field. Prepare to be inspired by",
+          "plagiarism_score": 0.54,
+          "source_url": "https://owasp.org/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 142,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "to collaborate with industry leaders and contribute to open standards that protect against new and emerging threats. We&#8217;re excited to be part of this global community",
+          "plagiarism_score": 0.73,
+          "source_url": "https://genai.owasp.org/2025/04/17/owasp-gen-ai-security-project-announces-nine-new-sponsors-and-major-rsa-conference-presence-to-advance-generative-ai-security/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 172,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "collaborative project to document and share web application security knowledge and best practices.&nbsp; Since 2001, OWASP has grown into a global community of thousands of volunteers",
+          "plagiarism_score": 0.62,
+          "source_url": "https://blog.codacy.com/owasp-top-10",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 183,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "they present. At the heart of OWASP and the GenAI Security Project is educating security professionals by harnessing insights from our open community of experts to",
+          "plagiarism_score": 0.58,
+          "source_url": "https://genai.owasp.org/2025/06/30/cyberrisk-alliance-and-owasp-join-forces-to-advance-application-security-and-ai-education-across-the-cyber-ecosystem/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 163,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "including Infosec Girls , a global community led by Vandana Verma, where women share their passion and knowledge for various areas of information security. Braiterman is",
+          "plagiarism_score": 0.54,
+          "source_url": "https://cybersecurityventures.com/doing-away-with-the-hacker-and-geek-stereotype-in-cybersecurity/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 169,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "list, OWASP evolved into a global network of contributors working to improve software security. The OWASP Top 10 outlines the most critical security risks to web",
+          "plagiarism_score": 0.77,
+          "source_url": "https://netacea.com/blog/open-source-security-frameworks/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 161,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "OWASP continues to thrive as a collaborative effort driven by volunteers passionate about enhancing cybersecurity. Practical Application of OWASP One practical application of OWASP is its",
+          "plagiarism_score": 0.69,
+          "source_url": "https://www.cyberghostvpn.com/glossary/owasp",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 187,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "by local OWASP volunteers all over the world. These events are an awesome way to connect with the larger security community and see a variety of",
+          "plagiarism_score": 0.65,
+          "source_url": "https://blog.gitguardian.com/a-beginners-guide-to-owasp/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 144,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "professional community in ways that optimize your impact and respect your busy schedule. Volunteer opportunities range from a year-long commitment to less than an hour of",
+          "plagiarism_score": 0.5,
+          "source_url": "https://engage.isaca.org/volunteeropportunities/about",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 170,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "passion for security. This is your chance to connect, learn, and grow with some of the brightest minds in the field. Prepare to be inspired by",
+          "plagiarism_score": 0.54,
+          "source_url": "https://owasp.org",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 142,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "online community that publishes open-source information and resources on IoT , system software and web application security . &#91; 5 &#93; It is led by a",
+          "plagiarism_score": 0.5,
+          "source_url": "https://en.wikipedia.org/wiki/OWASP",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 154,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "way for all types of organizations to analyse and improve their software security posture. OWASP Security Shepherd OWASP Security Shepherd is a web and mobile application",
+          "plagiarism_score": 0.69,
+          "source_url": "https://owasp.org/projects/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 170,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "way for all types of organizations to analyse and improve their software security posture. OWASP Security Shepherd OWASP Security Shepherd is a web and mobile application",
+          "plagiarism_score": 0.65,
+          "source_url": "https://owaspeu.org/projects/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 170,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "online community that publishes open-source information and resources on IoT , system software and web application security . &#91; 5 &#93; It is led by a",
+          "plagiarism_score": 0.5,
+          "source_url": "https://en.wikipedia.org/wiki/Open_Worldwide_Application_Security_Project",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 154,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "to date with the latest developments and contribute to improving web application security. One of the best ways to stay updated with OWASP developments is by",
+          "plagiarism_score": 0.77,
+          "source_url": "https://bluegoatcyber.com/blog/a-beginners-guide-to-owasp/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 157,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "online community that publishes open-source information and resources on IoT , system software and web application security . [ 5 ] It is led by a",
+          "plagiarism_score": 0.5,
+          "source_url": "https://www.wikiwand.com/en/articles/OWASP",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 146,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Community Collaboration:  OWASP is driven by a global community of volunteers and professionals who contribute to its projects, share expertise, and collaborate to improve web application security.",
+          "type": "paraphrased_match",
+          "source_text": "security. As a result, it is recommended to complete an OWASP Top 10 web audit, as it allows the security of web applications in educational and",
+          "plagiarism_score": 0.58,
+          "source_url": "https://www.aasmr.org/jsms/Vol14/No.7/Vol.14.No.7.22.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 144,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block_id": "block_2",
+      "evidence": [
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "data is substituted by some variable called a parameter or a placeholder. Note that exactly the same query is sent to",
+          "plagiarism_score": 0.71,
+          "source_url": "https://stackoverflow.com/questions/8263371/how-can-prepared-statements-protect-from-sql-injection-attacks",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 117,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "(which can happen when",
+          "plagiarism_score": 0.75,
+          "source_url": "https://stackoverflow.com/questions/8263371/how-can-prepared-statements-protect-from-sql-injection-attacks",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 22,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "What is an injection attack? Injection vulnerabilities allow attackers to insert malicious inputs into an application or relay malicious code through",
+          "plagiarism_score": 0.76,
+          "source_url": "https://www.contrastsecurity.com/glossary/injection-attack-types",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 149,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "Contents Overview Injection attacks",
+          "plagiarism_score": 0.75,
+          "source_url": "https://www.contrastsecurity.com/glossary/injection-attack-types",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 35,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "exact_match",
+          "source_text": "Injection Injection attacks happen when",
+          "plagiarism_score": 0.99,
+          "source_url": "https://communitybenchmark.com/dataprotection/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 39,
+              "type": "exact"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "exact_match",
+          "source_text": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "plagiarism_score": 0.99,
+          "source_url": "https://communitybenchmark.com/dataprotection/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 157,
+              "type": "exact"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "exploit caused by invalid data Not to be confused with Dependency injection or Arbitrary code execution . Code injection is a",
+          "plagiarism_score": 0.86,
+          "source_url": "https://en.wikipedia.org/wiki/Code_injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 125,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "2 Preventing Code Injection",
+          "plagiarism_score": 0.75,
+          "source_url": "https://en.wikipedia.org/wiki/Code_injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 27,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "data or input processed by an application. It is easy to set up and helps minimize the risk of malicious code",
+          "plagiarism_score": 0.76,
+          "source_url": "https://brightsec.com/blog/code-injection/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 109,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "LDAP Injection These attacks",
+          "plagiarism_score": 0.5,
+          "source_url": "https://brightsec.com/blog/code-injection/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 28,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "LDAP where untrusted data is sent to an interpreter through a command or query that goes unsanitized by the web application.",
+          "plagiarism_score": 0.86,
+          "source_url": "https://rapid7.com/blog/post/2013/06/20/xss-vs-injection/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 124,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "Attacks vs SQL Injection",
+          "plagiarism_score": 0.75,
+          "source_url": "https://rapid7.com/blog/post/2013/06/20/xss-vs-injection/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 24,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "perform SQL injection attacks using any controllable input that is processed as a SQL query by the application. For example, some",
+          "plagiarism_score": 0.67,
+          "source_url": "https://portswigger.net/web-security/sql-injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 129,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "deception Web LLM attacks",
+          "plagiarism_score": 0.5,
+          "source_url": "https://portswigger.net/web-security/sql-injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 25,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "What Are Injection Attacks? Injection attacks occur when untrusted data is inserted into a program as part of a query or",
+          "plagiarism_score": 0.81,
+          "source_url": "https://www.indusface.com/learning/injection-attacks/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 120,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "Injection attacks occur when",
+          "plagiarism_score": 0.75,
+          "source_url": "https://www.indusface.com/learning/injection-attacks/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 28,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "either a partial or complete SQL query via the data input or transmitted from the client (browser) to the web application.",
+          "plagiarism_score": 0.86,
+          "source_url": "https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 122,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "Injection flaws occur when",
+          "plagiarism_score": 0.75,
+          "source_url": "https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 26,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "form fields, headers, or cookies. But data that comes from databases, web services, and other sources is frequently untrusted from a",
+          "plagiarism_score": 0.9,
+          "source_url": "https://owasp.org/www-community/Injection_Theory",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 132,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "compromise backend systems, or attack other users. Successful injection attacks may completely compromise or destroy a system. It is important to",
+          "plagiarism_score": 0.86,
+          "source_url": "https://owasp.org/www-community/Injection_Flaws",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 145,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": ". These vulnerabilities arise when an application processes untrusted data as part of a command or query, potentially allowing attackers to",
+          "plagiarism_score": 0.76,
+          "source_url": "https://en.wikipedia.org/wiki/SQL_injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 139,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "software, for example, when",
+          "plagiarism_score": 0.75,
+          "source_url": "https://en.wikipedia.org/wiki/SQL_injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 27,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "allowing them to alter or delete data or execute arbitrary code [57].... ### 2.4. SQL Injection Attacks SQL injection is a",
+          "plagiarism_score": 0.71,
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10346793/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 122,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "These attacks occur when",
+          "plagiarism_score": 0.75,
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10346793/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 24,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "lead to a variety of attacks on web applications. military, banking and medical applications. Table 1 lists some of the data",
+          "plagiarism_score": 0.86,
+          "source_url": "http://muhammetbaykara.com/wp-content/uploads/2018/10/ymhgece_webvul.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 124,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "restricted to SQL Injection",
+          "plagiarism_score": 0.75,
+          "source_url": "http://muhammetbaykara.com/wp-content/uploads/2018/10/ymhgece_webvul.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 27,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "can introduce malicious code into a computer program or system that fails to properly encode data that comes from an untrusted",
+          "plagiarism_score": 0.76,
+          "source_url": "https://peerj.com/articles/cs-136.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 126,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "Injection Attacks: Such attacks",
+          "plagiarism_score": 0.75,
+          "source_url": "https://peerj.com/articles/cs-136.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 31,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": "Attacks Work? Injection attacks occur when an application improperly handles user input, allowing untrusted data to be passed to an interpreter",
+          "plagiarism_score": 0.76,
+          "source_url": "https://blog.codacy.com/injection-attacks-owasp-top-10",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 143,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "Injection attacks occur when",
+          "plagiarism_score": 0.75,
+          "source_url": "https://blog.codacy.com/injection-attacks-owasp-top-10",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 28,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when untrusted data is sent to a code interpreter through a form input or some other data submission to a web application.",
+          "type": "paraphrased_match",
+          "source_text": ". These vulnerabilities arise when an application processes untrusted data as part of a command or query, potentially allowing attackers to",
+          "plagiarism_score": 0.76,
+          "source_url": "https://en.wikipedia.org/wiki/SQL_Injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 139,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Injection Injection attacks happen when",
+          "type": "paraphrased_match",
+          "source_text": "(Redirected from SQL Injection",
+          "plagiarism_score": 0.75,
+          "source_url": "https://en.wikipedia.org/wiki/SQL_Injection",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 30,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block_id": "block_3",
+      "evidence": [
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "for HTTP TRACE on all web servers. The OWASP ESAPI project has produced a set of reusable security components in several languages, including validation and",
+          "plagiarism_score": 0.6,
+          "source_url": "https://owasp.org/www-community/attacks/xss/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 156,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "attackers. Attacks like injection vulnerabilities such as SQL Injection, Cross site Scripting, Cross site Request Forgery(CSRF) are very common and threatening to the modern web",
+          "plagiarism_score": 0.68,
+          "source_url": "https://www.rjwave.org/ijedr/papers/IJEDR1703023.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 177,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "of such attacks on rapidly expanding web application platforms. Evaluation of existing XSS attack defensive solutions at the client-side, proxy-side, and server-side levels, as well",
+          "plagiarism_score": 0.72,
+          "source_url": "https://www.scirp.org/journal/paperinformation?paperid=119069",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 181,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "in ever increasing financial damages. The chennaionline.com web server receives the HTTP request and checks if it has the resource which is Cross site scripting",
+          "plagiarism_score": 0.72,
+          "source_url": "https://arxiv.org/ftp/arxiv/papers/1004/1004.1769.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 160,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "quickly and reliably using Burp Suite's web vulnerability scanner. Manually testing for reflected and stored XSS normally involves submitting some simple unique input (such as",
+          "plagiarism_score": 0.52,
+          "source_url": "https://portswigger.net/web-security/cross-site-scripting",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 175,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "applications built with modern web frameworks have fewer XSS bugs, because these frameworks steer developers towards good security practices and help mitigate XSS by using",
+          "plagiarism_score": 0.68,
+          "source_url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 171,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "some point. Cross-site Scripting (XSS) attacks are cited as the top website risk. More than 60... percent of web applications are vulnerable to them, and",
+          "plagiarism_score": 0.44,
+          "source_url": "https://digitalcommons.odu.edu/cgi/viewcontent.cgi?article=1459&context=vjs",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 153,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "to provide inherently safe wrapper APIs for injection-prone browser-side Web platform API sinks, as well as for server- and client-side HTML markup rendering. For some",
+          "plagiarism_score": 0.48,
+          "source_url": "https://cacm.acm.org/practice/securing-the-tangled-web/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 167,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "for cross-site scripting include escaping untrusted HTTP requests, as well as using modern web development frameworks like ReactJS and Ruby on Rails, which provide some built-in cross-site scripting",
+          "type": "paraphrased_match",
+          "source_text": "vector for malicious script code in untrusted HTML, causing the cross-site scripting (XSS) attacks that target websites script to be executed on a victim’s web",
+          "plagiarism_score": 0.64,
+          "source_url": "https://www.cs.uic.edu/~venkat/research/papers/blueprint-oakland09.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 159,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block_id": "block_4",
+      "evidence": [
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "Mitigation 5 See also 6 References 7 External links Toggle the table of contents XML external entity attack",
+          "plagiarism_score": 0.44,
+          "source_url": "https://en.wikipedia.org/wiki/XML_external_entity_attack",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 107,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "to be a URI that can be accessed by the XML",
+          "plagiarism_score": 0.73,
+          "source_url": "https://en.wikipedia.org/wiki/XML_external_entity_attack",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 43,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "XXE * Billion Laughs Attack * SAML Security XML External Entity Attack * Detecting and exploiting XXE in",
+          "plagiarism_score": 0.5,
+          "source_url": "https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE)",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 104,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "untrusted data into XML documents, which is then parsed by an",
+          "plagiarism_score": 0.73,
+          "source_url": "https://owasp.org/www-project-top-ten/2017/A4_2017-XML_External_Entities_(XXE)",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 61,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "day. XML External Entity Attack is such an attack. Being recently featured in the updated Open Web-Application Security",
+          "plagiarism_score": 0.56,
+          "source_url": "https://www.jetir.org/papers/JETIR2105163.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 119,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "External Entity Injection (XXE) XML external entities allow data to be",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.jetir.org/papers/JETIR2105163.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 70,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "is XXE attack? An XXE attack occurs when malicious actors send off data in one of the XML",
+          "plagiarism_score": 0.78,
+          "source_url": "https://www.wallarm.com/what/a4-xml-external-entities-xxe-2017-owasp",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 89,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "data ends up in an XML file (this can also be",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.wallarm.com/what/a4-xml-external-entities-xxe-2017-owasp",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 45,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "*Xml External Entities (XXE)* is the **number 4 risk** of the *OWASP Top 10*. As in the rest",
+          "plagiarism_score": 0.56,
+          "source_url": "https://www.swat4net.com/owasp-top-4-xml-external-entities-xee/1000/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 92,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "WCF, *EF, etc…) but same principles can also be applied to",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.swat4net.com/owasp-top-4-xml-external-entities-xee/1000/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 58,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "check also explicitly used External Parameter Entities as an- the support of XSLT and XInclude processing in XML",
+          "plagiarism_score": 0.56,
+          "source_url": "https://www.usenix.org/system/files/conference/woot16/woot16-paper-spath.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 112,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "Ruhr-UniversityBochum Ruhr-UniversityBochum Ruhr-UniversityBochum JörgSchwenk Ruhr-UniversityBochum Abstract the parser behavior can be",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.usenix.org/system/files/conference/woot16/woot16-paper-spath.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 135,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "in the OWASP Top Ten 2017 version &#8211;&nbsp; XML External Entities (XXE) . OWASP (Open Web Application Security",
+          "plagiarism_score": 0.56,
+          "source_url": "https://secumantra.com/owasp-xml-external-entities/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 114,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "untrusted data into XML documents, which is then parsed by an",
+          "plagiarism_score": 0.82,
+          "source_url": "https://secumantra.com/owasp-xml-external-entities/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 61,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "where an attacker can manipulate XML input to access sensitive data",
+          "plagiarism_score": 0.82,
+          "source_url": "https://appsec.fyi/xxe.html",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 67,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "*Xml External Entities (XXE)* is the **number 4 risk** of the *OWASP Top 10*. As in the rest",
+          "plagiarism_score": 0.61,
+          "source_url": "https://www.swat4net.com/owasp-top-4-xml-external-entities-xee/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 92,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "WCF, *EF, etc…) but same principles can also be applied to",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.swat4net.com/owasp-top-4-xml-external-entities-xee/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 58,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "The Security Misconfiguration category includes the XML External Entities (XEE) attack — previously its own category in the 2017 report.",
+          "type": "paraphrased_match",
+          "source_text": "OWASP Top 10 2017: A4 XML External Entities (XXE) | Kiuwan The Kiuwan application will undergo scheduled maintenance",
+          "plagiarism_score": 0.61,
+          "source_url": "https://www.kiuwan.com/blog/a4-xml-external-entities-xxe/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 116,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "An XML parser can be duped into sending data to an",
+          "type": "paraphrased_match",
+          "source_text": "that internal program, your data can become vulnerable to an XML",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.kiuwan.com/blog/a4-xml-external-entities-xxe/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 64,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block_id": "block_5",
+      "evidence": [
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "Vulnerable and Outdated Components? Vulnerable and outdated components refer to third-party libraries or frameworks used in web",
+          "plagiarism_score": 0.88,
+          "source_url": "https://www.vumetric.com/blog/owasp-top-10-a06-vulnerable-and-outdated-components-explained/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 127,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "security updates or patches from the component&#8217;s developers",
+          "plagiarism_score": 0.62,
+          "source_url": "https://www.vumetric.com/blog/owasp-top-10-a06-vulnerable-and-outdated-components-explained/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 65,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "Second, web developers often modify contrastthesecuritypostureofwebsitedeveloperswith JavaScript libraries by reformatting, restructuring or appending third-party modules such as",
+          "plagiarism_score": 0.88,
+          "source_url": "http://arxiv.org/pdf/1811.00918.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 178,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "client-side JavaScript library usage and the resulting security",
+          "plagiarism_score": 0.75,
+          "source_url": "http://arxiv.org/pdf/1811.00918.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 63,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "assessment. During this stage, security experts and developers",
+          "plagiarism_score": 0.75,
+          "source_url": "https://krishnag.ceo/blog/vulnerable-and-outdated-components-a-comprehensive-guide-for-software-developers/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 62,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "Vulnerable and Outdated Components: OWASP Top 10 #6 October 24, 2023 Third-party components are omnipresent in web",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.vaadata.com/blog/vulnerable-and-outdated-components-owasp-top-10-6/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 114,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "applications. Furthermore, exploits that are discovered, and often",
+          "plagiarism_score": 0.62,
+          "source_url": "https://www.vaadata.com/blog/vulnerable-and-outdated-components-owasp-top-10-6/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 66,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "public open-source libraries, packages, and frameworks enhanced the modern software development process, the security gaps in components",
+          "plagiarism_score": 0.88,
+          "source_url": "https://qawerk.com/blog/vulnerable-and-outdated-components/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 136,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "keep up with newly released security patches and",
+          "plagiarism_score": 0.5,
+          "source_url": "https://qawerk.com/blog/vulnerable-and-outdated-components/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 48,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "and explain the prevalence of cluded by third-party components such as advertising, tracking benign-but-vulnerable JavaScript libraries in",
+          "plagiarism_score": 0.88,
+          "source_url": "https://www.ndss-symposium.org/wp-content/uploads/2017/09/ndss2017_02B-1_Lauinger_paper.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 138,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "client-side JavaScript library usage and the resulting security",
+          "plagiarism_score": 0.75,
+          "source_url": "https://www.ndss-symposium.org/wp-content/uploads/2017/09/ndss2017_02B-1_Lauinger_paper.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 63,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "such as data breaches, financial losses, and reputational damage. &nbsp; Some common issues with Vulnerable and Outdated",
+          "plagiarism_score": 0.82,
+          "source_url": "https://www.securityjourney.com/post/owasp-top-10-vulnerable-and-outdated-components-explained",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 120,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "&nbsp; Regular monitoring for updates and security patches",
+          "plagiarism_score": 0.62,
+          "source_url": "https://www.securityjourney.com/post/owasp-top-10-vulnerable-and-outdated-components-explained",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 58,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "Using vulnerable or outdated software components remains one of the most widespread cybersecurity risks in modern web",
+          "plagiarism_score": 0.65,
+          "source_url": "https://www.acunetix.com/blog/web-security-zone/vulnerable-and-outdated-components-owasp-top-10/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 117,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "application exposed even after security advisories or patches",
+          "plagiarism_score": 0.62,
+          "source_url": "https://www.acunetix.com/blog/web-security-zone/vulnerable-and-outdated-components-owasp-top-10/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 61,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "Ten - Vulnerable and Outdated Components July 5, 2022 Categories: Tags: tech --> Components are used in",
+          "plagiarism_score": 0.71,
+          "source_url": "https://staciefarmer.com/owasp-top-10/Vulnerable-And-Outdated-Components/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 103,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "latest update. Components are often open source and",
+          "plagiarism_score": 0.62,
+          "source_url": "https://staciefarmer.com/owasp-top-10/Vulnerable-And-Outdated-Components/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 51,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Vulnerable and Outdated Components Many modern web developers use components such as libraries and frameworks in their web applications.",
+          "type": "paraphrased_match",
+          "source_text": "common application vulnerabilities: Broken access control Cryptographic Failures Injection Insecure Design Security misconfigurations Vulnerable and Outdated Components",
+          "plagiarism_score": 0.65,
+          "source_url": "https://www.vegaitglobal.com/media-center/knowledge-base/how-to-protect-against-vulnerable-and-outdated-components-web-security-blog-series",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 168,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Component developers often offer security patches and updates",
+          "type": "paraphrased_match",
+          "source_text": "developers don’t pay much attention to web security",
+          "plagiarism_score": 0.5,
+          "source_url": "https://www.vegaitglobal.com/media-center/knowledge-base/how-to-protect-against-vulnerable-and-outdated-components-web-security-blog-series",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 51,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block_id": "block_6",
+      "evidence": [
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "an excerpt from Hotfix . [ edit ] A hotfix is a software update that is released outside the normal update cycle or intended to be",
+          "plagiarism_score": 0.77,
+          "source_url": "https://en.wikipedia.org/wiki/Software_update",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 130,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "more than 1% of all search results contained at least one result that we believe to point to malicious content and the trend seems to be",
+          "plagiarism_score": 0.46,
+          "source_url": "https://security.googleblog.com/2008/02/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 136,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "free and open source apps . Applications can be browsed, downloaded, and installed from the F-Droid website or client app without the need to register an",
+          "plagiarism_score": 0.62,
+          "source_url": "https://en.wikipedia.org/wiki/F-Droid",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 153,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "a malware program, disguisedasausefultool(suchasanantivirusprogram)[122]. Nowadays, an entire economy emerged that is specialized in providing infected com- puters to cybercriminals. Miscreants set up their own botnet, which",
+          "plagiarism_score": 0.77,
+          "source_url": "https://seclab.bu.edu/people/gianluca/papers/gianluca-thesis.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 224,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "and obscure the URL that points to a malicious Web server inside it. Figure 1.1 above outlines the typical sequence of events through which an attacker",
+          "plagiarism_score": 0.92,
+          "source_url": "https://core.ac.uk/download/444057483.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 151,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "brainstormed a list of types of corporations that would be motivated to inform their customers and users about computer security, including software producers that release updates",
+          "plagiarism_score": 0.54,
+          "source_url": "https://academic.oup.com/cybersecurity/article/1/1/121/2367023",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 179,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "from your browsing history and pass it on to third parties or sell it to advertisers. • Most extensions can be updated automatically which means that",
+          "plagiarism_score": 0.85,
+          "source_url": "https://scde.jntuh.ac.in/lmsportal/alumniuploads/assignments_29052025/Assignment_4_3lte594x5uo08.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 149,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "could have allowed an attacker to spy on ongoing private video and audio calls. Tracked as CVE-2020-25605, is the consequence of incomplete encryption, that could be",
+          "plagiarism_score": 0.42,
+          "source_url": "https://www.ncert.gov.ph/wp-content/uploads/2021/03/CERT-PH_ThreatsFeed_20210222.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 165,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "For instance, an application that automatically accepts updates from an outside source could be vulnerable to an attacker uploading their own malicious updates, which would then be distributed to all",
+          "type": "paraphrased_match",
+          "source_text": "Windows 11 (OK, that may be an oxymoron, but bear with me), you’ll run AI agents in isolated, secure workspaces. These agents will have their own",
+          "plagiarism_score": 0.58,
+          "source_url": "https://www.security-portal.cz/aggregator/sources/14",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 145,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block_id": "block_7",
+      "evidence": [
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "and 2) when a form data is submitted, the default encodingtypeis\"application/x-www-form-urlencoded\"andituses 7 RELATEDWORK URLencodingtoencodereservedcharacters[26].Therefore,to Our review of the academic literature suggests that",
+          "plagiarism_score": 0.45,
+          "source_url": "https://seclab.nu/static/publications/sac21-prevent-ssrf.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 229,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "To prevent",
+          "type": "paraphrased_match",
+          "source_text": "Libraries. To",
+          "plagiarism_score": 0.5,
+          "source_url": "https://seclab.nu/static/publications/sac21-prevent-ssrf.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 13,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "Forgery Author: Eoftedal Contributor(s): ErezYalon, kingthorin Overview In a Server-Side Request Forgery (SSRF) attack, the attacker can abuse functionality on the server",
+          "plagiarism_score": 0.55,
+          "source_url": "https://owasp.org/www-community/attacks/Server_Side_Request_Forgery",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 170,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "BibTeX Source Abstract: Server-side request forgery (SSRF) is a security vulnerability that arises from a vulnerability in web applications. For example, when",
+          "plagiarism_score": 0.5,
+          "source_url": "https://thesai.org/Publications/ViewPaper?Volume=12&Issue=12&Code=IJACSA&SerialNo=30",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 158,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "and detectability are easy making it quite dangerous.... Server-Side Request Forgery (SSRF) flaws occur when an API is fetching a remote resource",
+          "plagiarism_score": 0.77,
+          "source_url": "https://ssrf.world",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 145,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "To prevent",
+          "type": "exact_match",
+          "source_text": "To prevent",
+          "plagiarism_score": 0.99,
+          "source_url": "https://unit42.paloaltonetworks.com/server-side-request-forgery-exposes-data-of-technology-industrial-and-media-organizations/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 10,
+              "type": "exact"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "Metadata API Misconfiguration Public cloud Server-Side Request Forgery SSRF Share Executive Summary Server-Side Request Forgery (SSRF) is a web application vulnerability that",
+          "plagiarism_score": 0.64,
+          "source_url": "https://unit42.paloaltonetworks.com/server-side-request-forgery-exposes-data-of-technology-industrial-and-media-organizations/",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 174,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "a Server-Side Request Forgery (SSRF) attack, the applications on the World Wide Web, security violations have attacker reads and controls internal server",
+          "plagiarism_score": 0.73,
+          "source_url": "https://thesai.org/Downloads/Volume12No12/Paper_30-Detecting_Server_Side_Request_Forgery.pdf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 153,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "is server-side request forgery (SSRF)? Server-side request forgery (SSRF) is a web security vulnerability that enables attackers to manipulate a server into",
+          "plagiarism_score": 0.68,
+          "source_url": "https://www.vectra.ai/topics/server-side-request-forgery",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 156,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "To prevent",
+          "type": "paraphrased_match",
+          "source_text": "to prevent",
+          "plagiarism_score": 0.5,
+          "source_url": "https://www.vectra.ai/topics/server-side-request-forgery",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 10,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "talk about it in detail today. Stepan Ilyin Author What is Server Side Request Forgery? OWASP SSRF when abbreviated, it is a",
+          "plagiarism_score": 0.68,
+          "source_url": "https://www.wallarm.com/what/server-side-request-forgery",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 124,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "To prevent",
+          "type": "paraphrased_match",
+          "source_text": "it. To",
+          "plagiarism_score": 0.5,
+          "source_url": "https://www.wallarm.com/what/server-side-request-forgery",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 6,
+              "type": "paraphrase"
+            }
+          ]
+        },
+        {
+          "sentence": "Server-Side Request Forgery (SSRF) Server-Side Request Forgery occurs when an attacker tricks a server into fetching a resource it shouldn’t, even if that resource is normally protected.",
+          "type": "paraphrased_match",
+          "source_text": "how to find and exploit SSRF vulnerabilities. What is SSRF? Server-side request forgery is a web security vulnerability that allows an attacker",
+          "plagiarism_score": 0.59,
+          "source_url": "https://portswigger.net/web-security/ssrf",
+          "highlights": [
+            {
+              "start": 0,
+              "end": 143,
+              "type": "paraphrase"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
