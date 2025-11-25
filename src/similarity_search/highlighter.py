@@ -5,6 +5,23 @@ from src.ingestion.utils import split_sentences_with_offsets
 
 logger = logging.getLogger(__name__)
 
+
+def merge_ranges(ranges):
+    if not ranges:
+        return []
+    ranges = sorted(ranges, key=lambda x: x.start)
+
+    merged = [ranges[0]]
+    for current in ranges[1:]:
+        last = merged[-1]
+        if current.start <= last.end:  # Overlap
+            last.end = max(last.end, current.end)
+        else:
+            merged.append(current)
+    return merged
+
+
+
 def get_user_file_offsets(matched_sentence: str, user_sentences: List[Dict[str, Any]]) -> Optional[Dict[str, int]]:
     """
     Returns the start and end offsets of the matched sentence in the user file.

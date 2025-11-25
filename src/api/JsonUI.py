@@ -1,46 +1,23 @@
 # src/api/metadata_api.py
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
-from typing import List, Optional, Any
-
+from typing import List
 from src.similarity_search.cleanjson import clean_module3_output
 from src.RefinedOutput.callLLM import call_llm_for_metadata
-from src.models.module3_models import Module3Item
 
+# ✅ import models from module3_models
+from src.models.module3_models import Module3Input, Module3Item, BlockInput
 
 router = APIRouter(prefix="/UI-JSON", tags=["JsonUI"])
-
 
 # ---------------------------
 #  Pydantic Models
 # ---------------------------
-# class Highlight(BaseModel):
-#     start: int
-#     end: int
-#     type: Optional[str] = None
 
-
-# class UserFileOffset(BaseModel):
-#     start: int
-#     end: int
-
-
-
-
-class BlockInput(BaseModel):
-    block_id: str
-    evidence: List[Module3Item]
-
-
-class Module3Input(BaseModel):
-    doc_id: str
-    results: List[BlockInput]
-
-    
 
 # ---------------------------
 #  MAIN ENDPOINT — CLEAN + METADATA
 # ---------------------------
+
 @router.post("/metadata_enrich")
 async def metadata_enrich(payload: Module3Input):
     try:
@@ -51,7 +28,7 @@ async def metadata_enrich(payload: Module3Input):
             for ev in block.evidence:
                 module3_items.append(ev)
 
-        # CLEAN STEP — pass offsets too
+        # CLEAN STEP — include user_file_offsets
         cleaned_blocks = clean_module3_output(module3_items)
 
         # Extract all URLs
@@ -61,9 +38,10 @@ async def metadata_enrich(payload: Module3Input):
                 if src["source_url"]:
                     urls.add(src["source_url"])
 
+        # Call LLM for metadata
         metadata_map = call_llm_for_metadata(list(urls))
 
-        # Add metadata to each source
+        # Attach metadata to each source
         for blk in cleaned_blocks:
             for src in blk["sources"]:
                 url = src["source_url"]

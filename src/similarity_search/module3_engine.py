@@ -139,7 +139,7 @@ def idea_similarity_evidence(sentence: str) -> Dict[str, Any]:
         "plagiarism_score": 0.3,
         "semantic_similarity": 0.0,
         "source_url": "",
-        "highlights": [{"start": 0, "end": len(sentence), "type": "idea_similarity"}]
+        # "highlights": [{"start": 0, "end": len(sentence), "type": "idea_similarity"}]
     }
 
 # ============================================================
@@ -205,7 +205,7 @@ async def exact_match_evidence(
             "plagiarism_score": 0.99,
             "semantic_similarity": round(sem_score, 2),
             "source_url": src_url,
-            "highlights": [{"start": 0, "end": len(snippet), "type": "exact"}],
+            # "highlights": [{"start": 0, "end": len(snippet), "type": "exact"}],
             "user_file_offsets": user_offsets
         })
 
@@ -278,7 +278,7 @@ async def paraphrase_match_evidence(
             "plagiarism_score": plagiarism_overlap,
             "semantic_similarity": round(sem_score, 2),
             "source_url": src_url,
-            "highlights": char_spans,
+            # "highlights": char_spans,
             "user_file_offsets": user_offsets
         })
 
