@@ -130,6 +130,18 @@ def cosine_sim(vec1: np.ndarray, vec2: np.ndarray) -> float:
     return float(np.dot(vec1, vec2))
 
 
+def find_sentence_offsets_in_text(sentence: str, raw_text: str):
+    """
+    Return (start, end) offsets of a sentence in raw_text.
+    Returns (None, None) if not found.
+    """
+    start = raw_text.find(sentence)
+    if start == -1:
+        return None, None
+    return start, start + len(sentence)
+
+
+
 def split_sentences_with_offsets(text: str):
     """
     Returns list of {sentence, start, end}

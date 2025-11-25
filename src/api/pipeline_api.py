@@ -9,6 +9,7 @@ from src.ingestion.utils import normalize_file_path
 from src.ingestion.parsers import parse_pdf, parse_docx, parse_html, parse_text_file
 from src.similarity_search.pipeline import process_document
 from src.similarity_search.module3_engine import process_module3
+from src.similarity_search.highlighter import enrich_module3_with_user_offsets, process_module3_with_user_offsets
 
 router = APIRouter(
     prefix="/pipeline",
@@ -58,7 +59,10 @@ async def run_full_pipeline_text(payload: RawText):
         # --------------------------------
         # 4) Module 3: Forensic Matching
         # --------------------------------
-        module3_json = await process_module3(module2_json)
+
+        # Pass the original text for offsets
+        module3_json = await process_module3(module2_json, raw_text=module1_json["raw_text"])
+        # module3_json = await process_module3(module2_json)
 
         # --------------------------------
         # 5) Final return
@@ -115,7 +119,9 @@ async def run_full_pipeline(file: UploadFile = File(...)):
         # -----------------------------
         # 4) Module 3: Forensics
         # -----------------------------
-        module3_json = await process_module3(module2_json)
+
+        module3_json = await process_module3(module2_json, raw_text=module1_json["raw_text"])
+        # module3_json = await process_module3(module2_json)
 
         # -----------------------------
         # 5) Return final result

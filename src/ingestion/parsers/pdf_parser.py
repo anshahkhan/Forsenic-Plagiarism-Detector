@@ -9,6 +9,7 @@ from ..utils import normalize_metadata, detect_language, section_splitter
 from .ocr_utils import ocr_image
 from pdf2image import convert_from_path
 import logging
+from src.ingestion.utils import split_sentences_with_offsets
 
 # Configure logging for debugging
 logging.basicConfig(
@@ -38,7 +39,7 @@ def _extract_images_from_page(page_layout, out_dir: str, page_number: int) -> Li
 def parse_pdf(path: str, ocr_if_no_text: bool = True) -> Dict[str, Any]:
     """
     Parse a PDF using pdfminer.six + optional OCR fallback.
-    Returns dict with {doc_id, sections, metadata, raw_text, images}.
+    Returns dict with {doc_id, sections, metadata, raw_text, images, file_path}.
     """
     if not os.path.exists(path):
         logging.error(f"PDF file not found: {path}")
@@ -47,7 +48,6 @@ def parse_pdf(path: str, ocr_if_no_text: bool = True) -> Dict[str, Any]:
     doc_id = uuid.uuid4().hex
     pages_text = []
     out_images = []
-    metadata = {"file_type": "pdf"}
     empty_pages_idx = []
 
     # Extract text per page
@@ -101,15 +101,24 @@ def parse_pdf(path: str, ocr_if_no_text: bool = True) -> Dict[str, Any]:
                 logging.warning(f"OCR failed for page {idx+1}: {e}")
 
     raw_text = "\n\n".join([p for p in pages_text if p])
+    user_file_sentences = split_sentences_with_offsets(raw_text)
 
     # Section splitting
     sections = section_splitter(raw_text, pages_text)
 
     # Language detection
-    metadata["language"] = detect_language(raw_text)
-    metadata: Dict[str, Any] = {"file_type": "pdf"}
-    metadata["num_pages"] = len(pages_text)
+    metadata = {
+        "file_type": "pdf",
+        "num_pages": len(pages_text),
+        "language": detect_language(raw_text)
+    }
 
+    # Save raw text to a .txt file
+    UPLOAD_DIR = os.environ.get("DF_UPLOAD_DIR", "uploads")
+    os.makedirs(UPLOAD_DIR, exist_ok=True)
+    txt_file_path = os.path.join(UPLOAD_DIR, f"{doc_id}.txt")
+    with open(txt_file_path, "w", encoding="utf-8") as f:
+        f.write(raw_text)
 
     return {
         "doc_id": doc_id,
@@ -117,4 +126,5 @@ def parse_pdf(path: str, ocr_if_no_text: bool = True) -> Dict[str, Any]:
         "metadata": metadata,
         "raw_text": raw_text,
         "images": out_images,
+        "file_path": txt_file_path,  # path to saved txt file
     }
