@@ -9,6 +9,11 @@ class Highlight(BaseModel):
     type: Optional[str] = None
 
 
+class UserFileOffset(BaseModel):
+    start: int
+    end: int
+
+
 class Module3Item(BaseModel):
     """
     Model for one evidence item from Module 3 output.
@@ -20,7 +25,9 @@ class Module3Item(BaseModel):
     plagiarism_score: Optional[float] = Field(0.0, ge=0.0, le=1.0)
     semantic_similarity: Optional[float] = Field(0.0, ge=0.0, le=1.0)
     source_url: Optional[str] = None
-    highlights: Optional[List[Highlight]] = []
+    # highlights: Optional[List[Highlight]] = []
+    user_file_offsets: Optional[UserFileOffset] = None
+
 
 
 class CleanedSource(BaseModel):
