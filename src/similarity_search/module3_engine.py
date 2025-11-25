@@ -45,6 +45,9 @@ def add_offsets_to_module3_json(module3_json: Dict[str, Any], raw_text: str) -> 
                 continue
 
             start, end = find_sentence_offsets_in_text(sentence, raw_text)
+            # fallback to -1 if not found or None
+            start = start if isinstance(start, int) else -1
+            end = end if isinstance(end, int) else -1
             evidence["user_file_offsets"] = {"start": start, "end": end}
 
     return updated
@@ -131,14 +134,21 @@ def extract_best_snippet(sentence: str, source_text: str) -> str:
             best_start, best_end = i, i + window_size
     return " ".join(src_words[best_start:best_end]) if max_overlap > 0 else source_text[:min(200, len(source_text))]
 
-def idea_similarity_evidence(sentence: str) -> Dict[str, Any]:
+async def idea_similarity_evidence(sentence: str) -> Dict[str, Any]:     # Check if the sentence is meaningful
+    meaningful_list: List[bool] = await are_meaningful_sentences([sentence])
+    
+    # If the sentence is not meaningful, return an empty dict or some default
+    if not meaningful_list[0]:
+        return {}  # or you could return None if you prefer
+    
+    # Otherwise, construct the evidence dict
     return {
         "sentence": sentence,
         "type": "idea_similarity",
         "source_text": "",
         "plagiarism_score": 0.3,
         "semantic_similarity": 0.0,
-        "source_url": "",
+        "source_url": ""
         # "highlights": [{"start": 0, "end": len(sentence), "type": "idea_similarity"}]
     }
 
@@ -254,8 +264,8 @@ async def paraphrase_match_evidence(
             len(set(orig_sentence.split()) & set(normalize_text(source_sentence).split())) / max(len(orig_sentence.split()), 1), 2
         )
 
-        sentence_level_highlight = compute_sentence_level_highlight(orig_sentence, source_sentence)
-        char_spans = compute_character_highlight_spans(orig_sentence, source_sentence)
+        # sentence_level_highlight = compute_sentence_level_highlight(orig_sentence, source_sentence)
+        # char_spans = compute_character_highlight_spans(orig_sentence, source_sentence)
 
         # ----------------------------
         # Compute user_file_offsets
@@ -278,7 +288,6 @@ async def paraphrase_match_evidence(
             "plagiarism_score": plagiarism_overlap,
             "semantic_similarity": round(sem_score, 2),
             "source_url": src_url,
-            # "highlights": char_spans,
             "user_file_offsets": user_offsets
         })
 
@@ -391,42 +400,49 @@ async def generate_sentence_level_evidence_async(block: Dict[str, Any],
     # Idea match fallback
     for s in sentences:
         if s not in exact_matched and s not in paraphrased_matched:
-            evidence_list.append(idea_similarity_evidence(s))
+            ev = await idea_similarity_evidence(s)
+            if ev:
+                evidence_list.append(ev)
 
     return {"evidence": evidence_list, "skipped_pdf_urls": skipped_pdfs}
 
 # ============================================================
 # Module 3 processor
 # ============================================================
-async def process_module3(module2_json: Dict[str, Any], raw_text:str, batch_size: int = 20, concurrency: int = 20, nlp_batch_size: int = 64):
+async def process_module3(module2_json: dict, raw_text: str,
+                          batch_size: int = 20,
+                          concurrency: int = 20,
+                          nlp_batch_size: int = 64) -> dict:
     results = []
     doc_id = module2_json.get("doc_id", "unknown")
     blocks = module2_json.get("blocks", [])
 
     block_semaphore = asyncio.Semaphore(concurrency)
 
-    async def _process_block_with_semaphore(block):
+    async def _process_block(block):
         async with block_semaphore:
             return await generate_sentence_level_evidence_async(block,
-                                                               batch_size=batch_size,
-                                                               concurrency=concurrency,
-                                                               nlp_batch_size=nlp_batch_size)
+                                                                 batch_size=batch_size,
+                                                                 concurrency=concurrency,
+                                                                 nlp_batch_size=nlp_batch_size)
 
-    tasks = [asyncio.create_task(_process_block_with_semaphore(block)) for block in blocks]
+    tasks = [asyncio.create_task(_process_block(block)) for block in blocks]
     gathered = await asyncio.gather(*tasks)
+
     for block, res in zip(blocks, gathered):
-        # Add offsets to each evidence item
         for ev in res["evidence"]:
             sentence = ev.get("sentence")
             if sentence:
-                start = raw_text.find(sentence)
-                if start != -1:
-                    ev["user_file_offsets"] = {
-                        "start": start,
-                        "end": start + len(sentence)
-                    }
-                else:
-                    ev["user_file_offsets"] = None
+                start, end = find_sentence_offsets_in_text(sentence, raw_text)
+
+                # Ensure start and end are integers
+                start = start if isinstance(start, int) and start is not None else -1
+                end = end if isinstance(end, int) and end is not None else -1
+
+                ev["user_file_offsets"] = {"start": start, "end": end}
+            else:
+                ev["user_file_offsets"] = {"start": -1, "end": -1}  # fallback
+
         results.append({
             "block_id": block.get("block_id"),
             "evidence": res["evidence"],

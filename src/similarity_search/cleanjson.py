@@ -45,10 +45,9 @@ def clean_module3_output(items: List[Module3Item]) -> List[Dict[str, Any]]:
             scored_sources.append({
                 "source_text": ev.source_text,
                 "source_url": ev.source_url,
-                "plagiarism_score": ev.plagiarism_score,
-                "semantic_similarity": ev.semantic_similarity,
+                # "plagiarism_score": ev.plagiarism_score,
+                # "semantic_similarity": ev.semantic_similarity,
                 "score": round(score, 4),
-                "highlights": ev.highlights or [],
                 "user_file_offsets": user_offsets
             })
 

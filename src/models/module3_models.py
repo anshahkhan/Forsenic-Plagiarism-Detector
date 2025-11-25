@@ -13,8 +13,9 @@ class Highlight(BaseModel):
 
 
 class UserFileOffset(BaseModel):
-    start: int
-    end: int
+    start: int = -1  # or 0 if you prefer
+    end: int = -1
+
 
 
 class Module3Item(BaseModel):
@@ -32,10 +33,11 @@ class Module3Item(BaseModel):
     source_url: Optional[str] = None
 
     # REQUIRED — so the raw module3 output remains valid
-    highlights: Optional[List[Highlight]] = None
+    # highlights: Optional[List[Highlight]] = None
 
     # REQUIRED — for user PDF offsets
-    user_file_offsets: Optional[UserFileOffset] = None
+    user_file_offsets: UserFileOffset = UserFileOffset()  # default empty offset
+
 
 
 
