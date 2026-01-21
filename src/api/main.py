@@ -1,12 +1,12 @@
 # src/api/main.py
 from fastapi import FastAPI
-from src.api.ingestion_api import router as ingestion_router
-from src.api.similarity_api import router as similarity_router
-from src.api.forsenics_api import router as forsenics_router
-from src.api.pipeline_api import router as pipeline_router
-from src.api.JsonUI import router as JsonUI
+from .ingestion_api import router as ingestion_router
+from .similarity_api import router as similarity_router
+from .forsenics_api import router as forsenics_router
+from .pipeline_api import router as pipeline_router
+from .JsonUI import router as JsonUI
 
-from src.api.newjson import router as Clean_router
+from .newjson import router as Clean_router
 app = FastAPI(title="DF Project - MVP")
 
 # Include ingestion routes

@@ -1,11 +1,11 @@
 # src/api/metadata_api.py
 from fastapi import APIRouter, HTTPException
 from typing import List
-from src.similarity_search.cleanjson import clean_module3_output
-from src.RefinedOutput.callLLM import call_llm_for_metadata
+from ..similarity_search.cleanjson import clean_module3_output
+from ..RefinedOutput.callLLM import call_llm_for_metadata
 
 # ✅ import models from module3_models
-from src.models.module3_models import Module3Input, Module3Item, BlockInput
+from ..models.module3_models import Module3Input, Module3Item, BlockInput
 
 router = APIRouter(prefix="/UI-JSON", tags=["JsonUI"])
 

@@ -132,15 +132,7 @@ A comprehensive plagiarism detection system that analyzes documents for content 
 
 6. **Run the application**
    
-   **Streamlit UI:**
-   ```bash
-   streamlit run src/api/main.py
-   ```
-   
-   **FastAPI Server:**
-   ```bash
-   python src/api/pipeline_api.py
-   ```
+   See the [Running the Application](#running-the-application) section below.
 
 ### Docker Setup
 
@@ -152,6 +144,118 @@ A comprehensive plagiarism detection system that analyzes documents for content 
 2. **Access the application**
    - Web UI: http://localhost:8000
    - API: http://localhost:8000/api
+
+## Running the Application
+
+### Option 1: Backend (Uvicorn) + Frontend (Streamlit) - Recommended for Development
+
+This approach runs the FastAPI backend and Streamlit frontend as separate services, which is ideal for development.
+
+#### Terminal 1 - Start Backend Server (Uvicorn)
+
+```bash
+# From project root directory
+cd src/api
+
+# Run FastAPI server with Uvicorn on port 8000
+uvicorn pipeline_api:app --reload --host 0.0.0.0 --port 8000
+```
+
+**Output should show:**
+```
+INFO:     Uvicorn running on http://0.0.0.0:8000
+INFO:     Application startup complete
+```
+
+**Available API endpoints:**
+- Base URL: `http://localhost:8000`
+- API Docs: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
+
+#### Terminal 2 - Start Frontend (Streamlit)
+
+```bash
+# From project root directory
+streamlit run src/api/main.py
+```
+
+**Output should show:**
+```
+You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.x.x:8501
+```
+
+#### Accessing the Application
+
+- **Frontend UI**: http://localhost:8501
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
+
+### Option 2: Backend Only (For API Development)
+
+If you only need to work with the backend API:
+
+```bash
+cd src/api
+uvicorn pipeline_api:app --reload --host 0.0.0.0 --port 8000
+```
+
+Then access the API at http://localhost:8000/docs
+
+### Option 3: Frontend Only (For UI Development)
+
+If you only need to work with the frontend:
+
+```bash
+streamlit run src/api/main.py
+```
+
+Then access the UI at http://localhost:8501
+
+### Option 4: Docker Compose (Full Stack)
+
+To run both backend and frontend in containers:
+
+```bash
+docker-compose -f docker/docker-compose.yml up --build
+```
+
+Access the application at http://localhost:8000
+
+## Development Workflow
+
+### Running Tests While Developing
+
+In a third terminal, run tests to validate your changes:
+
+```bash
+# Run all tests
+pytest tests/ -v
+
+# Run tests in watch mode (auto-rerun on file changes)
+pytest-watch tests/
+
+# Run specific test file
+pytest tests/test_similarity_engine.py -v
+```
+
+### Typical Development Setup
+
+```bash
+# Terminal 1: Backend
+cd src/api
+uvicorn pipeline_api:app --reload
+
+# Terminal 2: Frontend
+streamlit run src/api/main.py
+
+# Terminal 3: Tests (optional)
+pytest-watch tests/
+```
+
+The `--reload` flag in Uvicorn automatically restarts the server when you make code changes.
 
 ## Project Structure
 

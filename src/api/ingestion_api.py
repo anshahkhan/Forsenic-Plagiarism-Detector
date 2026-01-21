@@ -7,9 +7,9 @@ import uuid
 import shutil
 import requests
 from pydantic import BaseModel
-from src.models.ingestion_models import URLInput, UploadResponse
-from src.ingestion.utils import normalize_file_path
-from src.ingestion.parsers import parse_pdf, parse_docx, parse_html, parse_text_file
+from ..models.ingestion_models import URLInput, UploadResponse
+from ..ingestion.utils import normalize_file_path
+from ..ingestion.parsers import parse_pdf, parse_docx, parse_html, parse_text_file
 
 router = APIRouter(prefix="/ingestion", tags=["ingestion"])
 

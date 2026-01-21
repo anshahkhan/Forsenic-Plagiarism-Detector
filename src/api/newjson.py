@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 from typing import List, Dict, Any, Optional
 import json
 import asyncio
-from src.RefinedOutput.callLLM import call_llm_for_metadata
+from ..RefinedOutput.callLLM import call_llm_for_metadata
 
 router = APIRouter(
     prefix="/similarity/New-json",

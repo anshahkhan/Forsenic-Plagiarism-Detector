@@ -4,8 +4,8 @@ from fastapi.responses import JSONResponse
 import json
 import tempfile
 import os
-from src.similarity_search.pipeline import process_document
-from src.similarity_search.module3_engine import process_module3  # Module 3
+from ..similarity_search.pipeline import process_document
+from ..similarity_search.module3_engine import process_module3  # Module 3
 
 from typing import List, Dict, Any
 router = APIRouter(

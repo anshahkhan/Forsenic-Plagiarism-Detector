@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 import json
 import os
 
-from src.similarity_search.module3_engine import process_module3
+from ..similarity_search.module3_engine import process_module3
 
 router = APIRouter(
     prefix="/similarity/forsenics",

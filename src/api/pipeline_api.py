@@ -6,14 +6,14 @@ import uuid
 from fastapi.encoders import jsonable_encoder
 
 
-from src.ingestion.utils import normalize_file_path
-from src.ingestion.parsers import parse_pdf, parse_docx, parse_html, parse_text_file
-from src.similarity_search.pipeline import process_document
-from src.similarity_search.module3_engine import process_module3
+from ..ingestion.utils import normalize_file_path
+from ..ingestion.parsers import parse_pdf, parse_docx, parse_html, parse_text_file
+from ..similarity_search.pipeline import process_document
+from ..similarity_search.module3_engine import process_module3
 
 # ✅ Import all module3 models from models, not JsonUI
-from src.models.module3_models import Module3Input, BlockInput, Module3Item, UserFileOffset
-from src.api.JsonUI import metadata_enrich  # only the enrichment endpoint
+from ..models.module3_models import Module3Input, BlockInput, Module3Item, UserFileOffset
+from .JsonUI import metadata_enrich  # only the enrichment endpoint
 
 router = APIRouter(prefix="/pipeline", tags=["pipeline"])
 
