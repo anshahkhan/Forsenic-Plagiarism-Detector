@@ -62,7 +62,8 @@ class CleanedSource(BaseModel):
     plagiarism_score: Optional[float] = Field(None, ge=0.0, le=1.0)
     semantic_similarity: Optional[float] = Field(None, ge=0.0, le=1.0)
     score: float
-    user_file_offsets: Optional[UserFileOffset] = None
+    user_file_offsets: UserFileOffset = UserFileOffset()  # default empty offset
+
 
 
 class CleanedSentence(BaseModel):

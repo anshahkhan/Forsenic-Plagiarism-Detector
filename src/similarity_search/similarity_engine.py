@@ -24,9 +24,14 @@ def grammar_similarity(text1: str, text2: str) -> float:
 def semantic_similarity(text1: str, text2: str) -> float:
     if not text1.strip() or not text2.strip():
         return 0.0
+
     emb1 = _sem_model.encode(text1, convert_to_tensor=True)
     emb2 = _sem_model.encode(text2, convert_to_tensor=True)
-    return util.cos_sim(emb1, emb2).item()
+
+    cosine = util.cos_sim(emb1, emb2).item()
+    normalized = (cosine + 1) / 2  # convert [-1,1] → [0,1]
+    return normalized
+
 
 def fingerprint(text: str, k: int = 5) -> set:
     words = text.split()

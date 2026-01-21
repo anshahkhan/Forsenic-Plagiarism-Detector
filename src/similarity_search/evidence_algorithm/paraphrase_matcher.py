@@ -1,7 +1,7 @@
 # src/similarity_search/evidence_algorithms/paraphrase_matcher.py
 from typing import List, Dict, Any, Tuple
 import numpy as np
-from ..utils import split_sentences, top_k_sentence_pairs, cosine_sim
+from ...ingestion.utils import split_sentences, top_k_sentence_pairs, cosine_sim
 
 class ParaphraseMatcher:
     """
